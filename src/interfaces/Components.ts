@@ -207,8 +207,8 @@ export interface MobileNavbarLinksContainerProps {
 
 export interface PrimaryCardWithCTAProps {
   id: string;
-  image: string;
-  imageAltText: string;
+  image?: string;
+  imageAltText?: string;
   title: string;
   content: string;
   href: string;
@@ -217,6 +217,7 @@ export interface PrimaryCardWithCTAProps {
   borderColour?: 1 | 2 | 3 | 4 | 5 | 6;
   target?: 'BLANK';
   luanchingOn?: string;
+  noImage?:boolean
 }
 
 export interface LandingPageHeroProps {

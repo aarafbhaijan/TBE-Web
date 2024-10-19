@@ -1,6 +1,6 @@
 import { CourseChapterModel, CourseModel, ProjectChapter } from '.';
 
-export type APIMethodTypes = 'GET' | 'POST' | 'PATCH';
+export type APIMethodTypes = 'GET' | 'POST' | 'PATCH' | 'DELETE';
 
 export interface APIMakeRquestProps {
   method?: APIMethodTypes;

@@ -14,7 +14,7 @@ import { routes } from '@/constant';
 
 const Home = ({ seoMeta }: PageProps) => {
   const { response, loading } = useApi('shiksha', {
-    url: routes.api.shiksha,
+    url: routes.api.qns,
   });
 
   const courses: PrimaryCardWithCTAProps[] = useAPIResponseMapper(
@@ -25,8 +25,45 @@ const Home = ({ seoMeta }: PageProps) => {
   if (loading) {
     return <LoadingSpinner />;
   }
+  const questions: PrimaryCardWithCTAProps[] = [
+    {
+      content: 'explore ReactJs Question...',
+      href: `/shiksha/explore/ReactJs`,
+      noImage: true,
+      id: 'ReactJs',
+      // image: "ReactJs",
+      // imageAltText: 'ReactJS Image',
+      title: 'ReactJs ',
+      borderColour: 1,
+      ctaText: "See Question",
+      active: true
+    },
+    {
+      content: 'Explore NextJs Question...',
+      href: '/shiksha/explore/NextJs',
+      noImage: true,
+      id: 'NextJs',
+      // image: "NextJs",
+      // imageAltText: 'NextJS Image',
+      title: 'NextJs',
+      borderColour: 2,
+      ctaText: 'See Question',
+      active: true,
 
-  const noCourseFoundUI = (!courses || courses.length === 0) && (
+    }, {
+      content: 'Explore NodeJs Question...',
+      href: '/shiksha/explore/NodeJs',
+      noImage: true,
+      id: 'NodeJs',
+      // image: "NodeJs",
+      // imageAltText: 'NodeJS Image',
+      title: 'NodeJs',
+      borderColour: 3,
+      ctaText: 'See Question',
+      active: true,
+    }
+  ]
+  const noCourseFoundUI = (!questions || questions.length === 0) && (
     <FlexContainer
       justifyCenter={true}
       className='w-screen h-screen item-center justify-center flex-col'
@@ -48,9 +85,10 @@ const Home = ({ seoMeta }: PageProps) => {
     <Fragment>
       <SEO seoMeta={seoMeta} />
       <CardContainerB
+      
         heading='Explore'
-        focusText='Courses'
-        cards={courses}
+        focusText='Questions'
+        cards={questions}
         borderColour={2}
         subtext='Pick A Course and Start Learning'
         sectionClassName='px-2 py-4'
