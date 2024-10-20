@@ -175,7 +175,7 @@ const Qns = () => {
             const { data, error } = await makeRequest({
                 method: 'DELETE',
                 url: routes.api.qns,
-                body: { _id: id },
+                body: { _id: id ,type:type},
                 
             });
             if (error) {

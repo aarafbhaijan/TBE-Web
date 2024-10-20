@@ -163,7 +163,9 @@ const handleGetAllQns = async (
 
 const deleteQnFromDB = async (id: Schema.Types.ObjectId, type: string): Promise<DatabaseQueryResponseType> => {
   try {
-    await Question.deleteOne({ _id: id });
+    console.log('id',id,'p',type);
+    
+    await Question.findOneAndDelete({ _id: id });
     const result = Question.find({ type: type }).sort({ _id: -1 })
     return { data: result }
   } catch (error) {
